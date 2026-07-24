@@ -1,0 +1,22 @@
+# The `dependencies.repo` file follows a format that allows the inclusion of root key repositories,
+# under which each local repository is described by a dictionary encoded by its relative path.
+# Each of these dictionaries contains a key type, URL, and version. If the version key is omitted,
+# the default branch will be used.
+#
+# This configuration specifies a Git repository named template-cpp with the following details:
+
+# Type: Specifies the version control system as Git.
+# URL: Provides the URL of the GitHub repository for the template-cpp project.
+# Version: Specifies the branch or commit version to be used, in this case, it is set to master.
+
+# Please update this file by adding new packages or removing the example package.
+
+repositories:
+  ament_cmake_coverage:
+    type: git
+    url: git@github.com:Brazilian-Institute-of-Robotics/ament_cmake_coverage.git
+    version: main
+  ament_cmake_doxygen:
+    type: git
+    url: git@github.com:Brazilian-Institute-of-Robotics/ament_cmake_doxygen.git
+    version: main
