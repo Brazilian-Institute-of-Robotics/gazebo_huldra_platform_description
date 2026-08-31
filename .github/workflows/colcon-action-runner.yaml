@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: src/gazebo_huldra_platform_description
+          lfs: true
 
       - name: Set up ROS 2
         uses: ros-tooling/setup-ros@0.7.19
@@ -27,7 +30,7 @@ jobs:
           sudo apt-get update
           rosdep update
           rosdep install \
-            --from-paths . \
+            --from-paths src \
             --ignore-src \
             --rosdistro jazzy \
             -r \

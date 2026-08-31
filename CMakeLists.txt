@@ -16,6 +16,12 @@ install(
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+
+  # This package does not contain C or C++ source files.
+  set(ament_cmake_cppcheck_FOUND TRUE)
+  set(ament_cmake_cpplint_FOUND TRUE)
+  set(ament_cmake_uncrustify_FOUND TRUE)
+
   ament_lint_auto_find_test_dependencies()
 endif()
 
