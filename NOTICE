@@ -1,0 +1,25 @@
+Third-Party Material Notice
+
+The file:
+
+models/he_huldra_simplified/meshes/he_simplified.stl
+
+is adapted from the Huldra 3D model dataset made available by Equinor ASA.
+
+The original FBX data was processed and simplified in Blender by Lucas Baião
+Junqueira and subsequently exported as an STL mesh for use in this package.
+
+The adapted material is subject to the Equinor Open Data Sharing License for
+Huldra. A copy of the applicable terms is available at:
+
+THIRD_PARTY_LICENSES/Equinor-Huldra-Data-License.pdf
+
+The original licensed material may not be sold. Equinor ASA must be credited,
+and use or redistribution of the adapted material must comply with the
+applicable Equinor terms and conditions.
+
+The inclusion of this adapted material does not imply that Equinor ASA
+sponsors, endorses, or is otherwise affiliated with this package.
+
+Except for the third-party material identified above, the original contents
+of this package are licensed under the Apache License 2.0.

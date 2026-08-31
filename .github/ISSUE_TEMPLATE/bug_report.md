@@ -1,39 +1,58 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report a problem with the Huldra platform package
 title: "[Bug]: "
-labels: ["bug"]
-assignees: ''
-
+labels:
+  - bug
+assignees: []
 ---
 
-### Configuration
+## Configuration
 
-- Operating system: \<Ubuntu 00.00.0 LTS\>
+- Operating system:
+- ROS 2 distribution:
+- Gazebo version:
+- Package version or commit:
 
-- Package version: \<0.0.0\>
+## Description of the problem
 
-### Description of problem
+Provide a clear description of the problem.
 
-- \<Currently it is possible to build ...\>
+## Steps to reproduce
 
-### Steps to Reproduce
+1.
+2.
+3.
 
-1. step
-2. step
+## Actual results
 
-### Actual Results
+Describe what currently happens.
 
-- \<API internal error\>
+## Expected results
 
-### Expected Results
+Describe what should happen instead.
 
-- \<Successful build\>
+## Affected component
 
-### Related Package/PR
+Indicate the affected component:
 
-- N/A.
+- [ ] Platform visual geometry
+- [ ] Platform collision geometry
+- [ ] Gazebo world
+- [ ] Launch file
+- [ ] Package build or installation
+- [ ] Documentation
+- [ ] Other
 
-### Notes
+## Logs and screenshots
 
-- N/A.
+Include relevant terminal output, Gazebo logs, screenshots, or videos when
+available.
+
+## Related package or pull request
+
+List related packages or pull requests, or write `N/A`.
+
+## Notes
+
+Include any additional information, or write `N/A`.

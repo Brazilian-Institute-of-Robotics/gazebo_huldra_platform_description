@@ -1,24 +1,29 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+
 <package format="3">
-
-  <name>package_template_ros_cpp</name>
-
+  <name>gazebo_huldra_platform_description</name>
   <version>0.1.0</version>
 
   <description>
-    Description
+    Gazebo models, meshes, worlds and launch files for simulating a
+    simplified section of the Huldra offshore platform.
   </description>
 
-  <maintainer email="email@email.br">Autor</maintainer>
+  <maintainer email="lucas.junqueira@aln.senaicimatec.edu.br">
+    Lucas Baião Junqueira
+  </maintainer>
 
   <license>Apache 2</license>
+  <license>Equinor Open Data Sharing License for Huldra</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>rclcpp</depend>
-
-  <doc_depend>ament_cmake_doxygen</doc_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

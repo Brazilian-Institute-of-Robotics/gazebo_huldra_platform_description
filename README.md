@@ -1,107 +1,147 @@
-# package_template_ros_cpp
+# Gazebo Huldra Platform
 
 ## Overview
 
-- The `package_template_ros_cpp` package is a basic template for creating ROS (Robot Operating System) packages using C++. It provides the essential structure and configuration files needed to start developing ROS nodes in C++. Ideal for developers looking for a standardized and well-organized starting point for their robotics projects.
+The `gazebo_huldra_platform_description` package provides a simplified
+representation of the Huldra offshore platform for robotic simulation.
+
+The model focuses on the platform's upper section and includes environmental
+elements relevant to simulation. The platform is provided as an STL mesh and
+is configured for both visualization and collision in Gazebo.
+
+ROS 2 launch files are included to start Gazebo Harmonic and load the
+platform world and model.
+
+<p align="center">
+  <img src="thumbnails/gazebo_huldra_platform.png"
+       alt="Simplified Huldra platform model in Gazebo">
+</p>
+
+**Keywords:** simulation, oil & gas, offshore platform, Gazebo, ROS 2, Huldra
 
 ## License
 
-The source code is released under [Apache License 2.0](LICENSE).
+The source code is released under an [Apache License 2.0](LICENSE).
 
-**Affiliation:** SENAI CIMATEC \
-**Maintainer:** Autor, autor@fieb.org.br
+The file [he_simplified.stl](models/he_huldra_simplified/meshes/he_simplified.stl) is adapted from the Huldra 3D model dataset made available by Equinor ASA. The original FBX data was processed and simplified in Blender before being exported as an STL mesh.
 
-The `package_template_ros_cpp` package has been tested under:
+The adapted material is subject to the [Equinor Open Data Sharing License for Huldra](THIRD_PARTY_LICENSES/Equinor-Huldra-Data-License.pdf).
 
-- ROS 2 [Jazzy Jalisco](https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html) and Ubuntu 24.04 LTS (Noble Numbat)
+See the [NOTICE](NOTICE) file for attribution and additional information.​‌
 
+**Author:** Lucas Baião Junqueira<br>
+**Affiliation:** SENAI CIMATEC<br>
+**Maintainer:** Lucas Baião Junqueira, lucas.junqueira@aln.senaicimatec.edu.br
 
-### Projects Development Status
+The `gazebo_huldra_platform_description` package has been tested with:
 
-| Repository | Latest | Linters |  Doxygen |  Coverage |
-|---         |---     |---    |--- |--- |
-| `package_template_ros_cpp`| [![Jazzy](https://github.com/Brazilian-Institute-of-Robotics/package_template_ros_cpp/actions/workflows/colcon-action-runner.yaml/badge.svg)](https://github.com/Brazilian-Institute-of-Robotics/package_template_ros_cpp/actions/workflows/colcon-action-runner.yaml) | [![lints runners](https://github.com/Brazilian-Institute-of-Robotics/package_template_ros_cpp/actions/workflows/runner-ci-lint.yaml/badge.svg)](https://github.com/Brazilian-Institute-of-Robotics/package_template_ros_cpp/actions/workflows/runner-ci-lint.yaml) | N/A. | N/A. |
+- Ubuntu 24.04 LTS (Noble Numbat)
+- ROS 2 Jazzy Jalisco
+- Gazebo Harmonic
 
-<!--Internal and external dependencies -->
-### Dependencies
+## Dependencies
 
-```sh
-  $ sudo apt update
-  $ sudo apt-get install <packages>
+The main requirements are:
+
+- ROS 2 Jazzy Jalisco
+- Gazebo Harmonic
+- `ros_gz_sim`
+
+Install the package dependencies from the workspace root using `rosdep`:
+
+```bash
+rosdep install --from-paths src --ignore-src -r -y
 ```
 
-<!--remove this list, it is only here as a checklist -->
-### Package layout
+## Package layout
 
-```
-  - src: contains all C and C++ code
-  - include/\<package name\>: contains all C and C++ headers which are installed; for all installed headers, they should be folder-namespaced by the package name
-  - test: contains all automated tests and test data
-  - config: contains configuration files, e.g. YAML parameter files and RViz config files
-  - doc: contains all the documentation
-  - launch: contains all launch files
-  - package.xml: as defined by REP-0140 (may be updated for prototyping)
-  - CMakeLists.txt: only for ROS packages that use CMake
-  - README: can be rendered on GitHub as a landing page for the project. This can be as short or detailed as is convenient, but it should at least link to the project documentation. Consider putting a CI or code coverage badge in this README
-  - CONTRIBUTING: describes the contribution guidelines
-  - LICENSE: a copy of the license or licenses for this package
-  - CHANGELOG.rst: REP-0132 compliant changelog
-```
-### Install and Build
-  - [Install ROS 2](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+- `launch/`: contains the ROS 2 launch file used to start Gazebo and load the scenario.
+- `models/`: contains the Gazebo model description and the simplified STL mesh.
+- `worlds/`: contains the Gazebo world file.
+- `thumbnails/`: contains images used in the repository documentation.
+- `package.xml`: contains the package metadata and dependencies.
+- `CMakeLists.txt`: defines the package installation configuration.
+- `README.md`: contains the package documentation.
+- `CONTRIBUTING.md`: contains the contribution guidelines.
+- `LICENSE`: contains the project license.
+- `CHANGELOG.md`: records relevant changes for each package version.
 
-- **Building with colcon**
+## Building and installation
 
-  - To build from source, clone the latest version from this repository into your `colcon` workspace and compile the package using
+First, install ROS 2 Jazzy and Gazebo Harmonic.
 
-```sh
-  cd your_workspace/src
-  git clone https://github.com/Brazilian-Institute-of-Robotics/package_template_ros_cpp.git
-  cd your_workspace
-  source /opt/ros/${ROS_DISTRO}/setup.bash
-  colcon build --packages-select package_template_ros_cpp --event-handlers console_direct+
-```
-- **Building from autoproj**
+Clone the repository into the `src` directory of a ROS 2 workspace:
 
-  - See build configuration based on autoproj
+```bash
+cd YOUR_WORKSPACE/src
 
-  - After Installation and configuration of autoproj, run the following commands:
-
-```sh
-  cd YOUR_WORKSPACE
-  source env.sh
-  amake package_template_ros_cpp
-  source devel/setup.bash
+git clone https://github.com/Brazilian-Institute-of-Robotics/gazebo_huldra_platform_description.git
 ```
 
+Install the dependencies and build the package:
 
-### Unit Tests
+```bash
+cd YOUR_WORKSPACE
 
-- Run the unit tests with `colcon`
+source /opt/ros/jazzy/setup.bash
 
-```sh
-    cd YOUR_WORKSPACE
-    source /opt/ros/${ROS_DISTRO}/setup.bash
-    colcon build --packages-select package_template_ros_cpp \
-      --event-handlers console_direct+
-    colcon test  --packages-select package_template_ros_cpp \
-      --event-handlers console_direct+
-    colcon test-result --verbose --all
+rosdep install --from-paths src --ignore-src -r -y
+
+colcon build \
+  --packages-select gazebo_huldra_platform_description \
+  --symlink-install \
+  --event-handlers console_direct+
 ```
 
-- Run the unit tests with `autoproj`
+Source the workspace after the build:
 
-```sh
-    cd YOUR_WORKSPACE
-    source env.sh
-    autoproj test enable package_template_ros_cpp
-    amake package_template_ros_cpp
-    autoproj test exec package_template_ros_cpp --verbose
+```bash
+source install/setup.bash
 ```
-<!-- Communication Description (Topics, Services and Actions) with interfaces used:-->
+
+The `--symlink-install` option is recommended for development because changes
+to installed resource files can be reflected without rebuilding the entire
+package.
+
+## Unit Tests
+
+Run the package tests from the workspace root:
+
+```bash
+colcon test \
+  --packages-select gazebo_huldra_platform_description \
+  --event-handlers console_direct+
+
+colcon test-result --verbose
+```
+
+## Usage
+
+Source the workspace and launch the Huldra platform scenario:
+
+```bash
+source install/setup.bash
+
+ros2 launch gazebo_huldra_platform_description \
+  gazebo_huldra_platform_description.launch.py
+```
+
+The platform model is offset in the world so that the selected operational starting point is aligned with the Gazebo world origin at `X = 0` and `Y = 0`. This provides a consistent reference point for spawning simulation entities.
+
 ## Launch file
-  - N/A
+
+The package provides the following launch file:
+
+- `launch/gazebo_huldra_platform_description.launch.py`
+
+This launch file starts Gazebo Harmonic and loads the Huldra platform world
+and model.
 
 ## Bugs & Feature Requests
 
-- Please report bugs and request features using the [Issue Tracker](https://github.com/Brazilian-Institute-of-Robotics/package_template_ros_cpp/issues).
+Please report bugs and request features using the repository's [Issue Tracker](https://github.com/Brazilian-Institute-of-Robotics/gazebo_huldra_platform_description/issues).
+
+## Acknowledgments
+
+The author acknowledges Rebeca Tourinho Lima for her supervisory contribution
+to the conception and development of this package.
