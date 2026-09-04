@@ -65,6 +65,8 @@ rosdep install --from-paths src --ignore-src -r -y
 - `CONTRIBUTING.md`: contains the contribution guidelines.
 - `LICENSE`: contains the project license.
 - `CHANGELOG.md`: records relevant changes for each package version.
+- `NOTICE`: contains attribution and additional information about third-party material.
+- `THIRD_PARTY_LICENSES/`: contains the license terms applicable to third-party material.
 
 ## Building and installation
 
